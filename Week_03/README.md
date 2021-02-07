@@ -11,6 +11,7 @@
         >>> p.y
             2
 2. dict 的定义方法：
+
         eg:
 
             c = dict([('a',1), ('b', 2)])
@@ -20,10 +21,11 @@
             dict a
             max(a, key = a.get)
 4. 分治法
-    terminator
-    process(split),（subproblem）
-    drill down ,merge(subresult)
-    reverse states
+
+        terminator
+        process(split),（subproblem）
+        drill down ,merge(subresult)
+        reverse states
 
 5. 众数分治法：
     不断二分，最后会达到left == right的边界情况，取左端点值；
