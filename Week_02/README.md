@@ -1,11 +1,12 @@
 学习笔记
 1. not list 和 len(list) == 0 
 2. 三数之和为0，第一个循环里前两个数相同遍历时能否跳过，即
-    n = len(nums)
-    nums.sort()
-    for i in range(n):
-                if(i>0 and nums[i]==nums[i-1]):
-                    continue
+
+        n = len(nums)
+        nums.sort()
+        for i in range(n):
+                    if(i>0 and nums[i]==nums[i-1]):
+                        continue
     若有（-2，-1，-1，2，2，……），设元组长度为n，第一个 -1 满足条件， 遍历时能把第二个 -1 略过吗：
         答：可。不考虑元组长度，-1满足条件的情况为：[-1，-1，nums[x]] 或 [-1, nums[x], nums[y]], x 和 y 均大于两个-1的下标值。
             对于前者，第二个 -1 取不到；对于后者，因不需要重复三元组，可看作第一个 -1 取过后对第二个 -1 来说这种情况已经消失了，即同样取不到。
@@ -22,6 +23,7 @@
     
 5. leecode的node处理：
     输入数组 -> 数组转化为链表 -> 用Solution.function()处理链表 -> 链表输出结果（链表）转化为字符串，字符串被设定为列表样式输出。
+        
         数组转化为链表：
         nums = list
         # Now convert that list into linked list
@@ -45,43 +47,46 @@
             return "[" + result + "]"
 
 6. 翻转函数递归方法：
-    def reverse(head: Node):
-        if head = None or head.next = None:         #最内层递归的运算
-            return head       
-            pre.next = head                       #最内层递归的返回值为head
-        cur = reverse(pre.next)                    # f(f(f(f(f(x))))),从外往内运行，到最内一层（即最后一个结点处）开始运行if语句,得到head结点
-                                                    #把head结点给cur
-        pre.next.next = pre                        #head结点指向pre
-        pre.next = None                 #pre指向none，为下一层迭代的尾结点                                       
-        return cur                      #每一层函数的返回值为cur，前文使 cur = head，即整个链表的最后一个结点
-                                        # 即最后返回head（整个链表的最后一个结点），不停递归发现#cur不变，一直是原最后结点       
+    
+        def reverse(head: Node):
+            if head = None or head.next = None:         #最内层递归的运算
+                return head       
+                pre.next = head                       #最内层递归的返回值为head
+            cur = reverse(pre.next)                    # f(f(f(f(f(x))))),从外往内运行，到最内一层（即最后一个结点处）开始运行if语句,得到head结点
+                                                        #把head结点给cur
+            pre.next.next = pre                        #head结点指向pre
+            pre.next = None                 #pre指向none，为下一层迭代的尾结点                                       
+            return cur                      #每一层函数的返回值为cur，前文使 cur = head，即整个链表的最后一个结点
+                                            # 即最后返回head（整个链表的最后一个结点），不停递归发现#cur不变，一直是原最后结点       
 
 
 7. 树定义：
-    def tree(self, val):
-        self.val = val
-        #self.next = None , 链表
-        self.left,self.right = None, None #二叉
-        #self.children = None   n叉树
+
+        def tree(self, val):
+            self.val = val
+            #self.next = None , 链表
+            self.left,self.right = None, None #二叉
+            #self.children = None   n叉树
 
 8. 递归法模板：需在所需函数内再定义一个函数
-    def preorder(self, root):
-        if root:
-            self.traverse_path.append(root.val)        # 中
-            self.preorder(root.left)                #左
-            self.preorder(root.right)               #右
 
-    def inorder(self, root):
-        if root:
-            self.inorder(root.left)    #左
-            self.traverse_path.append(root.val)      #中
-            self.inorder(root.right)            #右
-        
-    def postorder(self, root):
-        if root:
-            self.postorder(root.left)
-            self.postorder(root.right)
-            self.reverse_path.append(root.val)
+        def preorder(self, root):
+            if root:
+                self.traverse_path.append(root.val)        # 中
+                self.preorder(root.left)                #左
+                self.preorder(root.right)               #右
+
+        def inorder(self, root):
+            if root:
+                self.inorder(root.left)    #左
+                self.traverse_path.append(root.val)      #中
+                self.inorder(root.right)            #右
+
+        def postorder(self, root):
+            if root:
+                self.postorder(root.left)
+                self.postorder(root.right)
+                self.reverse_path.append(root.val)
 
 
 9. why树常用递归：
@@ -93,18 +98,19 @@
     迭代：从旧值得到新值，不同的函数
 
 11. 广度优先遍历
-    def bfs(root: Node):
-        li = []
-        que = []
-        if not root:
-            return 
-        que.append(root)
-        while que:
-            a = que.remove()
-            li.append(a)
-            for ch in a.children:
-                que.append(ch)
-        return li
+
+        def bfs(root: Node):
+            li = []
+            que = []
+            if not root:
+                return 
+            que.append(root)
+            while que:
+                a = que.remove()
+                li.append(a)
+                for ch in a.children:
+                    que.append(ch)
+            return li
 
 12. 堆排序分析（Heap sort）
 
