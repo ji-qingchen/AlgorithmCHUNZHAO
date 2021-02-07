@@ -1,7 +1,10 @@
 学习笔记
 1. collections
+
     collections.Counter(s), 返回s中各元素的个数，输出dict
+
     collections.namedtuple('typename', 'field_name'), 创建一个tuple对象 
+    
         eg:
 
             Point = collections.namedtuple('Point', ['x', 'y'])
@@ -10,6 +13,7 @@
             1
         >>> p.y
             2
+            
 2. dict 的定义方法：
 
         eg:
