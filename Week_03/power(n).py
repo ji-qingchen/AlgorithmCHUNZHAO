@@ -29,4 +29,3 @@ def power(x,n):
         return res
     
     return qu(n) if n > 0 else 1/qu(-n)
-print(power(2,-2))
