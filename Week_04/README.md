@@ -1,7 +1,6 @@
 
-<font face="微软雅黑",size = 3 >学习笔记</font>
 
-<font face = "微软雅黑">1. 递归模板</font>
+<font face = "宋体">1. 递归模板</font>
 
 	def recur(level, param):
 		#terminator
