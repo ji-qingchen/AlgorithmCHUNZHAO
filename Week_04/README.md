@@ -65,12 +65,14 @@
 		memo = [0 for _ in range(n)] 或 memo = [0]*n
 		二维：
 		memo = [[0]*m]*n 或 memo = [[0 for x in range(m)] for y in range(n)]
+		
 			前面的定义方式不如后面严谨，可能出错(所有一维数组指向同一个地址，
 			
 			eg:
 			a = [[0]*2]*n 这种写法会使a[0][1]=1 => [[0,1][0,1][0,1]……])
 
 6. 尾递归方式：
+		
 		def fibs(n):
 			def fib(n,a,b):
 				if n <=1:
@@ -84,6 +86,7 @@
 	float('inf') float('-inf')
 
 9. 快速生成字典的方式
+		
 		key = ['key1','key2',……]
 		val = 10
 		dic = dict.fromkeys(key,val)
@@ -101,6 +104,7 @@
 		#左上角按列遍历 DFS
 		for j in range(n):
 			for i in range(0,j+1)
+			
 12. while (i >= 0 and j < n and s[i] == s[j]): 和 
 	while s[i] == s[j] and i>=0 and j<n  不同，'and '是从左往右算，前面超出索引范围则运算不到后面
 
