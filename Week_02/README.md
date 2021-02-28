@@ -8,34 +8,40 @@
                     if(i>0 and nums[i]==nums[i-1]):
                         continue
     若有（-2，-1，-1，2，2，……），设元组长度为n，第一个 -1 满足条件， 遍历时能把第二个 -1 略过吗：
-        答：可。不考虑元组长度，-1满足条件的情况为：[-1，-1，nums[x]] 或 [-1, nums[x], nums[y]], x 和 y 均大于两个-1的下标值。
-            对于前者，第二个 -1 取不到；对于后者，因不需要重复三元组，可看作第一个 -1 取过后对第二个 -1 来说这种情况已经消失了，即同样取不到。
-            故循环一可略过重复元素
+
+    答：可。不考虑元组长度，-1满足条件的情况为：[-1，-1，nums[x]] 或 [-1, nums[x], nums[y]], x 和 y 均大于两个-1的下标值。
+
+    对于前者，第二个 -1 取不到；对于后者，因不需要重复三元组，可看作第一个 -1 取过后对第二个 -1 来说这种情况已经消失了，即同样取不到。
+    故循环一可略过重复元素
 
 3. 死磕：
+
     1   如何实现“如果list中所有元素都大于0则输出空集”（死磕20210125晚）：
-        先对数组sort，若头元素大于0则整个数组元素都大于0（忘记了sort这个前提）；右指针的边界条件老是搞错（本地
-        IDE可正确运行）
+        先对数组sort，若头元素大于0则整个数组元素都大于0（忘记了sort这个前提）；右指针的边界条件老是搞错（本地IDE可正确运行）
+
     2  遍历range(n)和range(-n,0)取到的元素顺序是一样的（N叉树的前序遍历）
 
 4. for vscode：alt + 左键：选中所有相同元素；alt + F2：多处插入光标
+
     for vs2019：alt + 左键拖拽：选中一个区域，同时对所有行进行相同的编辑，对应vscode alt+shift+左键竖拉
     
 5. leecode的node处理：
+
     输入数组 -> 数组转化为链表 -> 用Solution.function()处理链表 -> 链表输出结果（链表）转化为字符串，字符串被设定为列表样式输出。
         
         数组转化为链表：
         nums = list
         # Now convert that list into linked list
-        dummyRoot = ListNode(0)         #一个结点
-        ptr = dummyRoot      
+        dummyRoot = ListNode(0)         #一个前置结点
+        ptr = dummyRoot      #变化的结点
         for number in nums:
-            ptr.next = ListNode(number)    #结点数组中的值
+            ptr.next = ListNode(number)    #next结点
             ptr = ptr.next       
         ptr = dummyRoot.next
         return ptr
 
-       链表转化为字符串：
+    链表转化为字符串：
+    
         def ……:
             if not node:
                 return "[]"
@@ -43,6 +49,7 @@
             while node:
                 result += str(node.val) + "-> "
                 node = node.next
+
             result + 'null'
             return "[" + result + "]"
 
@@ -64,7 +71,7 @@
 
         def tree(self, val):
             self.val = val
-            #self.next = None , 链表
+            #self.next = None  链表
             self.left,self.right = None, None #二叉
             #self.children = None   n叉树
 
@@ -90,7 +97,10 @@
 
 
 9. why树常用递归：
-    1 树的结构使不能直接到达某结点，而需要通过指针不断指向下一结点。“不断指向”是一种在原操作基础上的重复操作，即f(f(x))，且每个结点之间需要串起来
+
+    1 树的结构使不能直接到达某结点，而需要通过指针不断指向下一结点。
+    “不断指向”是一种在原操作基础上的重复操作，即f(f(x))，且每个结点之间需要串起来
+
     2 树的结构具有重复性
 
 10. 递归与迭代的区别
@@ -106,13 +116,11 @@
                 return 
             que.append(root)
             while que:
-                a = que.remove()
+                a = que.remove() #从左边取
                 li.append(a)
                 for ch in a.children:
-                    que.append(ch)
+                    que.append(ch)  #往右边加
             return li
-
-12. 堆排序分析（Heap sort）
 
 13. 递归写法：
     1 确定终止条件
@@ -120,11 +128,7 @@
     3 下探到下一层
     4 清理当前层
 
-14. 堆的写法
-    
-15. 队列判断是否为空，不能直接 if not queue， 而应该 queue.size() == 0 ,或定义一个队列类的empty方法
 
-16. 动态规划
 
 
 

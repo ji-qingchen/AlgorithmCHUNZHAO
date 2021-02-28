@@ -1,5 +1,5 @@
-# s = "anagram"
-# t = "nagarax"
+ s = "anagram"
+ t = "nagarax"
 
 # 非函数版
 he = {}
