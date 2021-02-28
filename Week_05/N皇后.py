@@ -77,7 +77,7 @@ def queen3(n):
 
 #位运算
 #用二进制数代替上面方法中的字符串；能用的格子置为1
-def queen3(n):
+'''def queen3(n):
     if n < 1: return []
     res = []
     def dfs(row,col,pie,na,queen):
@@ -85,5 +85,5 @@ def queen3(n):
             res.append(queen)
         bit = ~(col | pie | na) & ((1<<n)-1) #所有未占据的点设为1
         while bit: #有有效格子时
-            res.append(bit)
+            res.append(bit)'''
 
